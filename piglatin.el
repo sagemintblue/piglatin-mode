@@ -32,7 +32,8 @@
 (defconst piglatin-font-lock-keywords
   (list
    '("#.*$" . font-lock-comment-face)
-   '("'.+'" . font-lock-string-face)
+   '("`.+?`" . font-lock-string-face)
+   '("'.+?'" . font-lock-string-face)
    '("\-\-.*$" . font-lock-comment-face)
    '("\\<\\(LOAD\\|FILTER\\|FOREACH\\|GENERATE\\|AND\\|OR\\|ANY\\|ALL\\|ARRANGE\\|AS\\|ASC\\|BY\\|cache\\|cat\\|cd\|COGROUP\\|copyFromLocal\\|copyToLocal\\|cp\\|cross\\|define\\|desc\\|describe\\|diff\\|distinct\\|du\\|dump\\|eval\\|exec\\|explain\\|flatten\\|generate\\|group\\|help\\|if\\|illustrate\\|inner\\|input\\|into\\|is\\|join\\|kill\\|limit\\|ls\\|mkdir\\|mv\\|not\\|null\\|or\\|order\\|outer\\|output\\|parallel\\|pig\\|pwd\\|quit\\|register\\|rm\\|rmf\\|run\\|sample\\|set\\|ship\\|size\\|split\\|stderr\\|stdin\\|stdout\\|store\\|stream\\|through\\|union\\|using\\)\\>" . font-lock-keyword-face)
    '("\\<\\(\\w+\\)\\s-*(" (1 font-lock-function-name-face))  ;; functions
@@ -45,9 +46,8 @@
 (defvar piglatin-mode-syntax-table
   (let ((piglatin-mode-syntax-table (make-syntax-table)))
     (modify-syntax-entry ?_ "w" piglatin-mode-syntax-table)
-    (modify-syntax-entry ?/ ". 1456" piglatin-mode-syntax-table)
+    (modify-syntax-entry ?/ ". 14" piglatin-mode-syntax-table)
     (modify-syntax-entry ?* ". 23" piglatin-mode-syntax-table)
-    (modify-syntax-entry ?\n "> b" piglatin-mode-syntax-table)
     piglatin-mode-syntax-table)
   "Syntax table for piglatin-mode")
 
